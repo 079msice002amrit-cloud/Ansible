@@ -1,0 +1,10 @@
+---
+- hosts: deployment
+  become: true
+
+  tasks:
+  - name: Deploy application to EKS
+    shell: kubectl apply -f /home/ubuntu/kubernetes/e-com
+    environment:
+      KUBECONFIG: /home/ubuntu/.kube/config
+      HOME: /home/ubuntu
